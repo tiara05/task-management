@@ -87,15 +87,15 @@ Relasi: Satu user dapat memiliki banyak task (One-to-Many)
 
 ### 🔐 Halaman Login
 
-![Login](Hasil 3.png)
+<img src="Hasil 3.png" width="400" >
 
 ### 📋 Daftar Tugas
 
-![Task List](Hasil 1.png)
+<img src="Hasil 1.png" width="400" >
 
 ### ✏️ Tambah User Admin
 
-![User List](Hasil 2.png)
+<img src="Hasil 2.png" width="400" >
 
 ---
 
