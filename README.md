@@ -19,7 +19,98 @@ Aplikasi ini adalah sistem manajemen tugas sederhana yang dibangun dengan Larave
 
 ## 🛠️ Setup Proyek
 
-1. **Clone repository**
-   ```bash
-   git clone https://github.com/username/task-app.git
-   cd task-app
+```bash
+# 1. Clone repository
+git clone https://github.com/username/task-app.git
+cd task-app
+
+# 2. Install dependencies
+composer install
+npm install && npm run dev
+
+# 3. Salin file .env dan generate app key
+cp .env.example .env
+php artisan key:generate
+
+# 4. Setup database
+# - Buat database dengan nama task_app di MySQL
+# - Konfigurasi koneksi DB di file .env
+php artisan migrate --seed
+
+# 5. Jalankan server lokal
+php artisan serve
+```
+
+---
+
+## 🧾 Dokumentasi API
+
+🔗 [Dokumentasi Postman](https://documenter.getpostman.com/view/14406697/2sB2qUoQg7)
+
+Dokumentasi ini mencakup semua endpoint termasuk login, register, dan CRUD task lengkap dengan contoh respons.
+
+---
+
+## 🗃️ ERD (Entity Relationship Diagram)
+
+```
++--------+         +-------+
+| users  |         | tasks |
++--------+         +-------+
+| id     |◄────────| user_id
+| name   |         | title
+| email  |         | description
+| ...    |         | status
++--------+         | timestamps
+                   +-------+
+```
+
+Relasi: Satu user dapat memiliki banyak task (One-to-Many)
+
+---
+
+## 📋 CRUD Task & Filtering
+
+| HTTP Method | Endpoint           | Deskripsi                        |
+|-------------|--------------------|----------------------------------|
+| GET         | /tasks             | Menampilkan daftar tugas         |
+| GET         | /tasks/create      | Form tambah tugas                |
+| POST        | /tasks             | Simpan tugas baru                |
+| GET         | /tasks/{id}/edit   | Form edit tugas                  |
+| PUT         | /tasks/{id}        | Perbarui tugas                   |
+| DELETE      | /tasks/{id}        | Hapus tugas                      |
+| GET         | /tasks?status=done | Filter berdasarkan status tugas  |
+
+---
+
+## 📸 Screenshots
+
+### 🔐 Halaman Login
+
+![Login](Hasil 3.png)
+
+### 📋 Daftar Tugas
+
+![Task List](Hasil 1.png)
+
+### ✏️ Tambah User Admin
+
+![User List](Hasil 2.png)
+
+---
+
+## 👨‍💻 Kontribusi
+
+Ingin menyumbang kode? Silakan kirim pull request. Pastikan semua pengujian lulus dan kode mengikuti standar Laravel.
+
+---
+
+## 🔒 Keamanan
+
+Jika Anda menemukan celah keamanan, kirim email ke [taylor@laravel.com](mailto:taylor@laravel.com). Semua laporan akan ditangani dengan serius.
+
+---
+
+## 📄 Lisensi
+
+Kode sumber proyek ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
